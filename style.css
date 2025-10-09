@@ -169,11 +169,11 @@ header nav ul li a:hover { /* Linkin tyyli, kun hiiri on sen päällä */
 /* Työpöytänäkymä: Palauta vasen tasaus, jos halutaan */
 @media (min-width: 768px) {
     .hero-left {
-        text-align: left; /* Tasaa vasemmalle isommilla näytöillä */
+        text-align: auto; /* Tasaa vasemmalle isommilla näytöillä */
     }
 
     .cta-button {
-        margin-left: 1; /* Poista auto-keskitys ja tasaa vasemmalle */
+        margin-left: auto;
         margin-right: auto;
     }
 }
@@ -205,7 +205,7 @@ main h2 { /* Ajankohtaista Kaistalla -otsikko */
     border: 1px solid #eee; /* Kevyt reuna */
     border-radius: 15px; /* Pyöristetyt kulmat */
     padding: 20px;
-    box-shadow: 1 2px 5px rgba(19, 206, 206, 0.568); /* Kevyt varjo */
+    box-shadow: 0 2px 5px rgba(19, 206, 206, 0.568); /* Kevyt varjo */
     text-align: center; /* Keskittää sisällön sarakkeen sisällä */
 }
 
