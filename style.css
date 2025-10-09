@@ -166,17 +166,11 @@ header nav ul li a:hover { /* Linkin tyyli, kun hiiri on sen päällä */
     text-align: center; /* Keskittää lohkon sisällä olevan inline-sisällön */
 }
 
-/* Työpöytänäkymä: Palauta vasen tasaus, jos halutaan */
-@media (min-width: 768px) {
-    .hero-left {
-        text-align: auto; /* Tasaa vasemmalle isommilla näytöillä */
-    }
 
     .cta-button {
         margin-left: auto;
         margin-right: auto;
     }
-}
 
 
 /* --- 5. Main-osion ja 3-sarakkeen tyylittely --- */
