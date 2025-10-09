@@ -203,9 +203,9 @@ main h2 { /* Ajankohtaista Kaistalla -otsikko */
 .column { /* Yksittäinen sarake */
     background-color: var(--dmc-valkoinen);
     border: 1px solid #eee; /* Kevyt reuna */
-    border-radius: 8px; /* Pyöristetyt kulmat */
+    border-radius: 15px; /* Pyöristetyt kulmat */
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Kevyt varjo */
+    box-shadow: 1 2px 5px rgba(19, 206, 206, 0.568); /* Kevyt varjo */
     text-align: center; /* Keskittää sisällön sarakkeen sisällä */
 }
 
