@@ -1,0 +1,470 @@
+/* --- 1. Fonttien lataaminen Google Fontsista --- */
+/* Exo 2 -fontin lataaminen */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
+
+/* --- 0. Yleiset nollaukset ja perusasetukset --- */
+* { /* Tämä selektori valitsee KAIKKI elementit */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Erittäin tärkeä asetus modernissa CSS:ssä */
+}
+
+/* Värimääritykset (DMC-värit) */
+:root { /* Tämä luo CSS-muuttujia, joita voi käyttää kaikkialla */
+    --dmc-3847: #004d40;
+    --dmc-3849: #009688;
+    --dmc-3814: #8BC34A;
+    --dmc-valkoinen: #ffffff;
+    --dmc-musta: #000000;
+}
+
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    line-height: 1.6;
+    background-color: var(--dmc-valkoinen);
+    color: #333;
+    background-color: #33df976c;
+}
+
+/* --- 2. Header-osion tyylittely --- */
+
+header {
+    background-color: var(--dmc-3847);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* Jakaa tilan logon ja navin välillä */
+    align-items: center; /* Keskittää pystysuunnassa */
+}
+
+header img { /* Logon kuva headerin sisällä */
+    max-height: 50px;
+    width: auto;
+}
+
+header nav ul { /* Navigaatiolistan (ul) muotoilu */
+    list-style: none; /* Poistaa oletuslistamerkit (pallot) */
+    display: flex; /* Asettaa listan kohteet vierekkäin */
+}
+
+header nav ul li { /* Jokaisen navigaation kohteen muotoilu */
+    margin-left: 20px; /* Lisää tilaa kohtien väliin */
+}
+
+header nav ul li a { /* Navigaatiolinkkien muotoilu */
+    color: var(--dmc-valkoinen); /* Tekstin väri valkoinen */
+    text-decoration: none; /* Poistaa alleviivauksen */
+    font-weight: 700; /* Lihavoitu teksti */
+    padding: 5px 10px; /* Pientä täytettä linkkien ympärille */
+    transition: color 0.3s ease; /* Pehmeä siirtymä hoveriin */
+}
+
+header nav ul li a:hover { /* Linkin tyyli, kun hiiri on sen päällä */
+    color: var(--dmc-3849); /* Vaihtaa tekstin värin vaaleanvihreäksi */
+}
+
+/* --- 3. Hero-osion tyylittely --- */
+.hero { /* Koko hero-osion säiliö */
+    display: flex; /* Aktivoi Flexboxin pääsäiliölle */
+    flex-direction: column; /* Oletuksena allekkain pienillä näytöillä */
+    align-items: center; /* Keskittää sisällön */
+    padding: 40px 20px; /* Täytettä ylös/alas ja sivuille */
+    background-color: #33df976c; /* Vaalea tausta */
+    gap: 30px; /* Tilaa lohkojen väliin */
+}
+
+.hero-left,
+.hero-right { /* Vasemman ja oikean lohkon perusasetukset */
+    flex: 1; /* Antaa niille yhtä paljon tilaa, kun ne ovat vierekkäin */
+    text-align: center; /* Keskittää tekstin ja kuvat */
+}
+
+.hero-left h2 { /* Vasemman lohkon otsikko */
+    font-size: 2.5em; /* Suurempi fonttikoko */
+    color: var(--dmc-3847); /* Otsikon väri tummanvihreä */
+    margin-bottom: 15px; /* Tilaa otsikon alle */
+}
+
+.hero-left p { /* Vasemman lohkon tekstikappale */
+    font-size: 1.1em;
+    margin-bottom: 25px; /* Tilaa tekstin alle */
+    max-width: 600px; /* Rajoita tekstin leveyttä lukemisen helpottamiseksi */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-right img { /* Oikean lohkon kuva */
+    max-width: 100%; /* Varmistaa responsiivisuuden */
+    height: auto; /* Säilyttää kuvan mittasuhteet */
+    border-radius: 8px; /* Hieman pyöristetyt kulmat kuvalle */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Kevyt varjo */
+}
+
+/* Tekijänoikeusmaininnat kuvien alla */
+.image-attribution {
+    font-size: 0.8em; /* Pienempi fonttikoko */
+    color: #666; /* Vaaleampi väri */
+    margin-top: 10px; /* Tilaa kuvan yläpuolelle */
+    text-align: center; /* Keskittää maininnat */
+}
+
+/* Mobiilinäkymästä työpöydälle (yleensä n. 768px tai 992px) */
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row; /* Asettaa lohkot vierekkäin suuremmilla näytöillä */
+        text-align: left; /* Tasaa tekstin vasemmalle */
+        padding: 60px 40px; /* Lisää täytettä */
+    }
+
+    .hero-left {
+        text-align: left; /* Varmista, että teksti on vasemmalla */
+    }
+}
+
+/* --- 4. CTA-painikkeen tyylittely (sekä Hero että Liity mukaan -sivulla) --- */
+.button {
+    display: inline-block; /* Tekee elementistä "lohkomaisen", mutta sallii sen olla tekstin seassa */
+    background-color: var(--dmc-3814); /* Vaaleanvihreä tausta (DMC 3814) */
+    color: var(--dmc-valkoinen); /* Valkoinen tekstiväri */
+    padding: 12px 25px; /* Täytettä sisälle */
+    text-decoration: none; /* Poistaa alleviivauksen */
+    border-radius: 25px; /* Pyöreät reunat (puolet korkeudesta tekee täysin pyöreät päädyt) */
+    font-weight: 700; /* Lihavoitu teksti */
+    font-size: 1.1em; /* Hieman suurempi fonttikoko */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Pehmeät siirtymät hoveriin */
+    border: none; /* Poistaa oletusrajan, jos kyseessä on <button> tai <input type="button"> */
+    cursor: pointer; /* Osoitin muuttuu kädeksi */
+}
+
+.button:hover {
+    background-color: var(--dmc-3849); /* Keskivihreä tausta (DMC 3849) hoverissa */
+    transform: translateY(-2px); /* Nousee hieman ylöspäin hoverissa */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Lisää varjoa hoverissa */
+}
+
+
+  /* --- Hero-osion CTA-kuvan keskitys --- */
+
+/* Kuva itse */
+.cta-image {
+  max-width: 250px; /* Säädä tätä arvoa edelleen tarpeen mukaan */
+  height: auto;
+  display: block;
+  margin-left: auto;   /* UUSI: Keskittää kuvan vaakasuunnassa */
+  margin-right: auto;  /* UUSI: Keskittää kuvan vaakasuunnassa */
+}
+
+/* Linkki-säiliö (a-elementti) */
+.cta-button {
+    display: block; /* TÄMÄ ON TÄRKEÄÄ: tekee linkistä lohkoelementin */
+    margin: 20px auto 0 auto; /* Keskittää koko linkin ja antaa tilaa ylhäältä */
+    max-width: 250px; /* Samaan maksimileveyteen kuin kuva */
+}
+
+/* Hero-vasemmanpuoleinen lohko (varmistaa tekstin ja kuvien keskitetyn asettelun) */
+.hero-left {
+    text-align: center; /* Keskittää lohkon sisällä olevan inline-sisällön */
+}
+
+/* Työpöytänäkymä: Palauta vasen tasaus, jos halutaan */
+@media (min-width: 768px) {
+    .hero-left {
+        text-align: left; /* Tasaa vasemmalle isommilla näytöillä */
+    }
+
+    .cta-button {
+        margin-left: 1; /* Poista auto-keskitys ja tasaa vasemmalle */
+        margin-right: auto;
+    }
+}
+
+
+/* --- 5. Main-osion ja 3-sarakkeen tyylittely --- */
+main {
+    padding: 40px 20px; /* Perus täytettä main-sisällölle */
+    max-width: 1200px; /* Rajoita main-osion maksimileveyttä */
+    margin: 0 auto; /* Keskittää main-osion sivusuunnassa */
+    
+}
+
+main h2 { /* Ajankohtaista Kaistalla -otsikko */
+    text-align: center; /* Keskittää otsikon */
+    font-size: 2.2em;
+    color: var(--dmc-3847);
+    margin-bottom: 30px; /* Tilaa otsikon alle */
+}
+
+.updates-container { /* Kolmen sarakkeen säiliö */
+    display: flex; /* Aktivoi Flexboxin */
+    flex-direction: column; /* Allekkain mobiilissa */
+    gap: 30px; /* Tilaa sarakkeiden väliin */
+}
+
+.column { /* Yksittäinen sarake */
+    background-color: var(--dmc-valkoinen);
+    border: 1px solid #eee; /* Kevyt reuna */
+    border-radius: 8px; /* Pyöristetyt kulmat */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Kevyt varjo */
+    text-align: center; /* Keskittää sisällön sarakkeen sisällä */
+}
+
+.column h3 { /* Sarakkeen otsikko (Uutiset, Artikkelit, Tapahtumat) */
+    font-size: 1.5em;
+    color: var(--dmc-3849); /* Keskivihreä otsikko */
+    margin-bottom: 20px;
+}
+
+.column .item { /* Jokainen uutis/artikkeli/tapahtuma-kohde */
+    margin-bottom: 20px;
+}
+
+.column .item img { /* Itemin kuva */
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px; /* Hieman pyöristetyt kuvakulmat */
+    margin-bottom: 10px;
+}
+
+.column .item h4 { /* Itemin otsikko */
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.3;
+}
+
+.column-link-image img { /* "Lue lisää" -kuva sarakkeen alaosassa */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Pyöristetyt kulmat */
+    margin-top: 20px; /* Tilaa yläpuolelle */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animaatiot hoveriin */
+}
+
+.column-link-image img:hover {
+    transform: translateY(-3px); /* Nousee hieman hoverissa */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Varjo syvenee */
+}
+
+/* Työpöytänäkymä: sarakkeet vierekkäin */
+@media (min-width: 992px) { /* Aseta sarakkeet vierekkäin suuremmilla näytöillä */
+    .updates-container {
+        flex-direction: row; /* Sarakkeet vierekkäin */
+    }
+
+    .column {
+        flex: 1; /* Antaa jokaiselle sarakkeelle yhtä paljon tilaa */
+    }
+}
+
+/* --- 6. Footer-osion tyylittely --- */
+footer {
+    background-color: var(--dmc-3847); /* Tummanvihreä tausta */
+    color: var(--dmc-valkoinen); /* Valkoinen teksti */
+    padding: 30px 20px 15px; /* Täytettä ylös, sivuille, alas */
+    font-size: 0.9em;
+    text-align: center; /* Keskittää kaiken sisällön oletuksena */
+}
+
+footer h3 { /* Kaikki footerin otsikot */
+    color: var(--dmc-3814); /* Vaaleanvihreä otsikko */
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+footer ul { /* Listojen muotoilu */
+    list-style: none; /* Poistaa listamerkit */
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer a { /* Linkkien muotoilu */
+    color: var(--dmc-valkoinen);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--dmc-3814);
+}
+
+/* Ylin rivi (Statsit ja Linkit) */
+.footer-top-row {
+    display: flex;
+    flex-direction: column; /* Allekkain mobiilissa */
+    gap: 30px; /* Tilaa osioiden väliin */
+    margin-bottom: 40px;
+    max-width: 900px; /* Rajoita leveyttä, jotta ei leviä liian leveäksi */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-top-row .footer-section {
+    flex: 1; /* Ottaa tasaisesti tilaa työpöydällä */
+    background-color: rgba(0,0,0,0.1); /* Kevyt tumma tausta */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Alin rivi (Sponsorit ja Some) */
+.footer-bottom-row {
+    display: flex;
+    flex-direction: column; /* Allekkain mobiilissa */
+    gap: 30px;
+    margin-bottom: 40px;
+    max-width: 900px; /* Rajoita leveyttä */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-info-block {
+    flex: 1; /* Ottaa tasaisesti tilaa työpöydällä */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#sponsors { /* Sponsori-osion oma tausta */
+    background-color: var(--dmc-3849); /* Keskivihreä tausta */
+}
+
+#social-media { /* Some-osion oma tausta */
+    background-color: var(--dmc-3849); /* Vaaleanvihreä tausta */
+}
+
+#sponsors p { /* Sponsori-osion tekstin muotoilu */
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* Tekijänoikeusrivi */
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.2); /* Ohut viiva yläpuolelle */
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+/* Työpöytänäkymä: footerin osiot vierekkäin */
+@media (min-width: 768px) {
+    .footer-top-row,
+    .footer-bottom-row {
+        flex-direction: row; /* Lohkot vierekkäin */
+    }
+}
+
+/* --- 7. Tietoa meistä -sivun tyylittely --- */
+
+/* Pääotsikko (h1) */
+main h1 {
+    text-align: center;
+    font-size: 2.8em;
+    color: var(--dmc-3847);
+    margin-bottom: 40px;
+    padding-top: 20px; /* Pientä tilaa yläreunaan, jos mainilla ei ole */
+}
+
+/* Esittelylohko (teksti + kuva) */
+.about-intro {
+    display: flex;
+    flex-direction: column; /* Allekkain mobiilissa */
+    gap: 30px;
+    margin-bottom: 50px;
+    max-width: 1000px; /* Rajoita leveyttä */
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center; /* Keskittää sisällön, kun allekkain */
+}
+
+.about-intro .about-text {
+    flex: 1; /* Ottaa tasaisesti tilaa työpöydällä */
+    padding: 0 20px; /* Pientä täytettä sivuille */
+    
+}
+
+.about-intro .about-text p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    
+}
+
+.about-intro .about-image {
+    flex: 1;
+    text-align: center; /* Keskittää kuvan ja sen alla olevan tekstin vaakasuunnassa */
+    /* UUSI: Mahdollisesti rajoita maksimileveyttä, jos kuva on todella pieni ja ei täytä tilaa */
+    max-width: 500px; /* Esim. jos kuva on fyysisesti esim. 400px leveä, voit rajoittaa tätä */
+    margin-left: auto; /* Keskittää tämän lohkon omassa tilassaan, jos max-width on käytössä */
+    margin-right: auto; /* Keskittää tämän lohkon omassa tilassaan, jos max-width on käytössä */
+}
+
+
+.about-intro .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Tarjooma-osio (Mitä me tarjoamme?) */
+.about-offerings {
+    max-width: 1000px; /* Rajoita leveyttä */
+    margin: 0 auto 50px auto; /* Keskittää ja lisää tilaa alle */
+    padding: 0 20px;
+    background-color:rgb(191, 241, 220); /* Vaalea tausta erottamaan */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.about-offerings h2 {
+    font-size: 2em;
+    color: var(--dmc-3847);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.about-offerings h3 {
+    font-size: 1.5em;
+    color: var(--dmc-3849);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.about-offerings p,
+.about-offerings ul {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.about-offerings ul {
+    list-style: disc; /* Perus pallomerkit */
+    margin-left: 25px; /* Sisennys listoille */
+}
+
+.about-offerings ul li {
+    margin-bottom: 8px;
+}
+
+/* Media query työpöytänäkymälle */
+@media (min-width: 768px) {
+    .about-intro {
+        flex-direction: row; /* Teksti ja kuva vierekkäin */
+        text-align: left; /* Tasaa tekstin vasemmalle */
+    }
+
+    .about-intro .about-text {
+        text-align: left; /* Varmistaa tekstin tasauksen vasemmalle */
+    }
+
+    .about-intro .about-image {
+        text-align: right; /* Tasaa kuvan oikealle */
+    }
+
+    /* main h1:n kohdistus paremmin isommissa näytöissä */
+    main h1 {
+        padding-top: 0;
+    }
+}
+
